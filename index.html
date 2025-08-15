@@ -1165,14 +1165,6 @@
             transition: all 0.6s ease;
         }
 
-        .news-card:hover .card-content {
-            background: linear-gradient(to top,
-                    rgba(2, 49, 61, 0.98) 0%,
-                    rgba(2, 49, 61, 0.9) 60%,
-                    transparent 100%);
-            transform: translateY(-5px);
-        }
-
         .card-title {
             font-size: 1.3rem;
             font-weight: 700;
@@ -1735,6 +1727,146 @@
             }
         }
 
+        .section5 {
+            padding: 60px 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            color: #00242c;
+            font-weight: 600;
+        }
+
+        .testimonial-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px 0;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            gap: 25px;
+            width: max-content;
+            animation: scroll 20s linear infinite;
+        }
+
+        .testimonial-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .testimonial-card {
+            background-color: #02313D;
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px 30px;
+            width: 480px;
+            flex-shrink: 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(226, 205, 179, 0.15);
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            background-color: #00242c;
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #fcde34;
+        }
+
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #fff;
+            font-style: italic;
+            position: relative;
+        }
+
+
+        .client-info {
+            border-top: 1px solid rgba(226, 205, 179, 0.2);
+            padding-top: 20px;
+        }
+
+        .client-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .client-title {
+            font-size: 14px;
+            color: rgba(226, 205, 179, 0.8);
+            margin: 0;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100% / 2));
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section5 {
+                padding: 40px 10px;
+            }
+            
+            .testimonial-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .testimonial-card {
+                width: 350px;
+                padding: 25px 20px;
+            }
+            
+            .testimonial-carousel {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonial-card {
+                width: 280px;
+                padding: 20px 15px;
+            }
+            
+            .testimonial-title {
+                font-size: 1.8rem;
+            }
+        }
+
         @media (max-width: 600px) {
             .hero {
                 padding: 80px 0 0;
@@ -1923,7 +2055,7 @@
                     <p>Estate</p>
                     <a href="#" class="explore-btn">EXPLORE</a>
                     <div class="img">
-                        <img src="./surfboard.png" alt="">
+                        <img src="./surfboard.png" alt="" style="margin-top: 25px;">
                     </div>
                 </div>
 
@@ -1933,7 +2065,7 @@
                     <p>Estate</p>
                     <a href="#" class="explore-btn">EXPLORE</a>
                     <div class="img">
-                        <img style="margin-top: 50px;" src="./house.png" alt="">
+                        <img style="margin-top: 80px;" src="./house.png" alt="">
                     </div>
                 </div>
             </div>
@@ -2053,6 +2185,78 @@
             </div>
         </div>
     </section>
+
+    <section class="section5">
+  <h2 class="testimonial-title">Testimonials</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-carousel">
+      <div class="testimonial-card">
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">
+          "Taxready.ae transformed our tax compliance process. Their team's
+          expertise saved us countless hours and ensured we're always
+          compliant with UAE regulations."
+        </p>
+        <div class="client-info">
+          <h3 class="client-name">Ahmed Khalifa</h3>
+          <p class="client-title">CEO, TechSolutions UAE</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">
+          "The corporate tax advisory services provided exceptional value.
+          Their strategic approach helped us optimize our tax position
+          significantly."
+        </p>
+        <div class="client-info">
+          <h3 class="client-name">Sarah Al-Mansoori</h3>
+          <p class="client-title">CFO, Gulf Enterprises</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">
+          "We've been using their tax filing services for 2 years now.
+          Flawless execution every time with clear communication throughout
+          the process."
+        </p>
+        <div class="client-info">
+          <h3 class="client-name">Raj Patel</h3>
+          <p class="client-title">Director, TradeLinks FZE</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">
+          "The transfer pricing study was comprehensive and helped us avoid
+          potential compliance issues. Highly recommend their services to
+          any business in UAE."
+        </p>
+        <div class="client-info">
+          <h3 class="client-name">Fatima Al-Qassimi</h3>
+          <p class="client-title">Founder, Pearl Consulting</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">
+          "Outstanding service quality and attention to detail. Their team
+          made complex tax matters simple and understandable for our
+          business operations."
+        </p>
+        <div class="client-info">
+          <h3 class="client-name">Mohammad Al-Rashid</h3>
+          <p class="client-title">Managing Partner, Emirates Trade Hub</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <footer class="site-footer">
         <div class="footer-inner">

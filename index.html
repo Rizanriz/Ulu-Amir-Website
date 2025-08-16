@@ -340,7 +340,7 @@
         .cta-button:hover::before {
             left: 100%
         }
-        
+
         /* Dropdown container */
         .has-dropdown {
             position: relative;
@@ -1636,7 +1636,7 @@
             transform: scale(1.05)
         }
 
-       
+
         @media (max-width:900px) {
             .hero {
                 padding: 90px 0 0;
@@ -1883,9 +1883,11 @@
                 padding: 80px 0 0;
                 min-height: 50vh
             }
-             .section2-columns,.container {
-            padding: 10px
-        }
+
+            .section2-columns,
+            .container {
+                padding: 10px
+            }
 
             .image-container {
                 height: auto;
@@ -1955,15 +1957,15 @@
             }
 
             .ventures-grid {
-                padding: 20px
+                padding: 20px;
             }
 
             .venture-card {
                 height: 500px
             }
 
-            .venture-card:first-child .img img {
-                margin-left: 10px
+            .img img {
+                margin-left: 20px
             }
         }
 
@@ -2000,7 +2002,7 @@
             <span></span>
         </label>
 
-              <ul class="nav-buttons" id="nav-buttons">
+        <ul class="nav-buttons" id="nav-buttons">
             <li><button class="nav-btn">Home</button></li>
 
             <li class="has-dropdown">
@@ -2058,7 +2060,7 @@
                     <p>Restaurant</p>
                     <a href="#" class="explore-btn">EXPLORE</a>
                     <div class="img">
-                        <img style="margin-top:75px" src="./food.png" alt="" loading="lazy">
+                        <img style="margin-top:70px" src="./food.png" alt="" loading="lazy">
                     </div>
                 </div>
                 <div class="venture-card">
@@ -2426,8 +2428,7 @@
                         image: './banner.png',
                         title: 'Arabic Flavor Born in Fire.',
                         button: 'LEARN MORE',
-                        // textClass: 'alternate',
-                        color:'#DEC6AA'
+                        color: '#F15A24' // Color for the second slide
                     }
                 ];
                 let currentState = 0;
@@ -2435,11 +2436,32 @@
                 const changeState = () => {
                     currentState = (currentState + 1) % states.length;
                     const state = states[currentState];
+
                     heroImage.src = state.image;
-                    heroText.innerHTML = `<h1>${state.title}</h1><a href="#" class="cta-button">${state.button}</a>`;
+
+                    // Create the h1 element separately so we can style it
+                    const h1 = document.createElement('h1');
+                    h1.innerHTML = state.title;
+
+                    // Apply color only if it exists in the state
+                    if (state.color) {
+                        h1.style.color = state.color;
+                        h1.style.background = 'none'; // Remove gradient background
+                        h1.style.webkitTextFillColor = 'initial'; // Reset text fill
+                    }
+
+                    // Clear existing content and add new elements
+                    heroText.innerHTML = '';
+                    heroText.appendChild(h1);
+                    heroText.innerHTML += `<a href="#" class="cta-button">${state.button}</a>`;
                 };
 
+                // Initialize first state
+                changeState();
+
+                // Auto-rotate every 3 seconds
                 let rotationInterval = setInterval(changeState, 3000);
+
                 document.getElementById('hero-section').addEventListener('click', (e) => {
                     if (!e.target.classList.contains('cta-button')) {
                         clearInterval(rotationInterval);

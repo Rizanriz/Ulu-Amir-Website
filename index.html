@@ -411,8 +411,15 @@
         }
 
         .image-column {
+            position: relative;
+            top: -8%;
+            right: 30%;
             opacity: 0;
             animation: fadeInLeft 1s ease-out .5s forwards
+        }
+
+        #building-animation {
+            transform: scale(1.5);
         }
 
         .column-img {
@@ -461,9 +468,9 @@
         .section-title {
             font-family: "inter";
             font-size: 2.5rem;
-            color: #000;
+            color: #00303b;
             margin-bottom: 50px;
-            font-weight: 700;
+            font-weight: 500;
             letter-spacing: 1px;
             opacity: 0;
             animation: fadeInUp 1s ease-out .3s forwards;
@@ -550,12 +557,10 @@
             color: #fffdfd;
             margin-bottom: 10px;
             transition: all .3s ease;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, .3)
         }
 
         .venture-card:hover h3 {
             transform: scale(1.1);
-            text-shadow: 0 4px 8px rgba(0, 0, 0, .4)
         }
 
         .venture-card p {
@@ -566,7 +571,7 @@
         }
 
         .venture-card:hover p {
-            transform: translateY(-5px)
+            transform: scale(1.1);
         }
 
         .venture-card img {
@@ -694,26 +699,22 @@
             padding-left: 20px
         }
 
-        .heading-main {
+        .heading-main,
+        .heading-sub {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 600;
             line-height: 1.2;
-            color: #DEC6AA;
+            color: #ffffff;
             margin-bottom: 10px;
-            font-family: "inter";
-        }
-
-        .heading-sub {
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            font-weight: 300;
-            color: #DEC6AA;
             font-family: "inter";
         }
 
         .legacy-paragraph {
             font-size: clamp(1rem, 2vw, 1.2rem);
             line-height: 1.6;
-            color: #f0f5fa
+            color: #f0f5fa;
+            font-weight: 300;
+            font-family: "inter";
         }
 
         .legacy-rectangle::before {
@@ -892,13 +893,15 @@
 
         .quote {
             font-size: 1rem;
+            font-weight: 300;
             line-height: 1.5;
             max-width: 100%;
             color: #e2e8f0;
             margin: 0;
             opacity: 0;
             animation: fadeInUp 1s ease-out .9s forwards;
-            transition: color .3s ease
+            transition: color .3s ease;
+            font-family: "inter";
         }
 
         .founder-card:hover .quote {
@@ -1024,7 +1027,7 @@
 
         .section-heading {
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 500;
             margin-bottom: 20px;
             color: #02313d;
             opacity: 0;
@@ -1615,7 +1618,7 @@
             position: relative;
             z-index: 2;
             color: #00242c;
-            font-weight: 600
+            font-weight: 500
         }
 
         .testimonial-container {
@@ -1849,6 +1852,12 @@
                 top: 10px;
                 left: 2px
             }
+            .image-column {
+                right: 40%;
+            }
+            #building-animation {
+                transform: scale(2);
+            }
         }
 
         @media (max-width:600px) {
@@ -2005,10 +2014,6 @@
         .animate-on-scroll.animate {
             opacity: 1;
             transform: translateY(0)
-        }
-
-        #building-animation {
-            padding-left: 20px;
         }
     </style>
 </head>

@@ -3,7 +3,10 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-
+    <!-- Add this to your head section -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Group - Crafting Ventures with Soul & Strategy</title>
@@ -449,9 +452,9 @@
             font-size: 2.5rem;
             position: relative;
             overflow: hidden;
-            font-weight:500;
+            font-weight: 500;
             font-family: "inter";
-            
+
         }
 
         .text-column p {
@@ -1596,6 +1599,37 @@
             transform: scale(1.05)
         }
 
+        /* Add this to your CSS */
+        .social-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .social-icon {
+            color: #d9cfa8;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: #d9cfa8;
+            color: #2f322f;
+            transform: translateY(-3px);
+        }
+
+        .social-icon i {
+            font-size: 16px;
+        }
+
         @keyframes slideInDown {
             from {
                 opacity: 0;
@@ -1738,293 +1772,300 @@
             }
 
 
-                nav {
-                    padding: 10px 20px
-                }
-
-                .menu-toggle-label {
-                    display: flex
-                }
-
-                .menu-toggle:checked+.menu-toggle-label span:nth-child(1) {
-                    transform: rotate(45deg) translate(5px, 5px)
-                }
-
-                .menu-toggle:checked+.menu-toggle-label span:nth-child(2) {
-                    opacity: 0;
-                    transform: translateX(-20px)
-                }
-
-                .menu-toggle:checked+.menu-toggle-label span:nth-child(3) {
-                    transform: rotate(-45deg) translate(7px, -6px)
-                }
-
-                .nav-buttons {
-                    position: fixed;
-                    top: 70px;
-                    right: 20px;
-                    width: 220px;
-                    background-color: rgba(2, 49, 61, .95);
-                    backdrop-filter: blur(20px);
-                    padding: 15px;
-                    border-radius: 15px;
-                    flex-direction: column;
-                    gap: 10px;
-                    display: none;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
-                    z-index: 100;
-                    animation: slideInDown .3s ease-out
-                }
-
-                .nav-buttons.active {
-                    display: flex
-                }
-
-                .nav-button,
-                .nav-btn {
-                    width: 100%;
-                    text-align: left;
-                    justify-content: center
-                }
-
-                .founder-card {
-                    flex-direction: column;
-                    padding: 50px 30px;
-                    gap: 40px
-                }
-
-                .photo-wrapper {
-                    margin: 0 auto
-                }
-
-                .text-content {
-                    text-align: center;
-                    align-items: center
-                }
-
-                .title .highlight::after {
-                    width: 80%
-                }
-
-                .quote {
-                    max-width: 100%
-                }
+            nav {
+                padding: 10px 20px
             }
 
-            @media (max-width:768px) {
-                .section5 {
-                    padding: 40px 10px
-                }
-
-                .testimonial-title {
-                    font-size: 2.5rem;
-                    font-weight: 700;
-                    margin-bottom: 30px
-                }
-
-                .testimonial-card {
-                    width: 350px;
-                    padding: 25px 20px
-                }
-
-                .testimonial-carousel {
-                    gap: 15px
-                }
-
+            .menu-toggle-label {
+                display: flex
             }
 
-            @media (max-width:480px) {
-                .testimonial-card {
-                    width: 280px;
-                    padding: 20px 15px
-                }
-
-                .testimonial-title {
-                    font-size: 1.8rem
-                }
-
-                .legacy-rectangle {
-                    padding: 40px 20px
-                }
-
-                .founder-card {
-                    padding: 40px 20px;
-                    gap: 30px
-                }
-
-                .photo-wrapper {
-                    min-width: 140px
-                }
-
-                .back-plate {
-                    top: 10px;
-                    left: 2px
-                }
-
-                .image-column {
-                    right: 40%;
-                }
-
-                #building-animation {
-                    transform: scale(2);
-                }
+            .menu-toggle:checked+.menu-toggle-label span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px)
             }
 
-            @media (max-width:600px) {
-                .hero {
-                    padding: 80px 0 0;
-                    min-height: 50vh
-                }
-
-                .section2-columns,
-                .container {
-                    padding: 10px
-                }
-
-                .image-container {
-                    height: 60vh;
-                    aspect-ratio: 4/3;
-                    width: 98%;
-                    border-radius: 40px;
-                    margin-bottom: -10%
-                }
-
-                .image-container img {
-                    object-fit: fill;
-                    border-radius: 10px;
-                }
-
-                .image-content h1 {
-                    font-size: 1.5rem;
-                    line-height: 1.3;
-                }
-
-                .cta-button {
-                    padding: 10px 20px;
-                    font-size: .9rem
-                }
-
-                .columns-wrapper {
-                    grid-template-columns: 1fr;
-                    /* Single column layout */
-                    grid-auto-flow: dense;
-                    /* Allows reordering */
-                }
-
-                .image-column {
-                    grid-row: 2;
-                    /* Moves image to second row */
-                    margin-bottom: 0;
-                    margin-top: 30px;
-                }
-
-                .text-column {
-                    grid-row: 1;
-                    /* Ensures text stays first */
-                }
-
-                .image-column,
-                .text-column {
-                    padding: 0 20px
-                }
-
-                .image-column {
-                    margin-bottom: 30px
-                }
-
-                .column-img {
-                    max-height: 300px
-                }
-
-                .venture-card {
-                    height: 450px
-                }
-
-                .news-card {
-                    width: 400px;
-                    height: 450px
-                }
-
-                .founder-card {
-                    padding: 40px 20px;
-                    gap: 30px
-                }
-
-                .photo-wrapper {
-                    flex: 0 0 280px
-                }
-
-                .back-plate {
-                    width: 200px;
-                    height: 300px
-                }
-
-                .photo {
-                    width: 240px
-                }
-
-                .card-content {
-                    padding: 10px
-                }
-
-                .ventures-grid {
-                    padding: 20px;
-                }
-
-                .venture-card {
-                    height: 500px
-                }
-
-                .img img {
-                    margin-left: 10px;
-                }
-
-                .legacy-rectangle {
-                    padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 30px)
-                }
-
-                .founder-card {
-                    padding: clamp(30px, 6vw, 40px) clamp(20px, 4vw, 30px);
-                    gap: 40px
-                }
-
-                .photo-wrapper {
-                    min-width: 160px
-                }
-
-                .title {
-                    text-align: center
-                }
-
-                .title .highlight::after {
-                    display: none;
-                }
-
-                .read-more-btn {
-                    margin-bottom: 20px;
-                }
-            }
-
-            @media (prefers-reduced-motion:no-preference) {
-                .venture-card:hover img {
-                    animation: pulse 2s infinite
-                }
-
-                .social:hover {
-                    animation: pulse 1.5s infinite
-                }
-            }
-
-            .animate-on-scroll {
+            .menu-toggle:checked+.menu-toggle-label span:nth-child(2) {
                 opacity: 0;
-                transform: translateY(30px);
-                transition: all .8s ease-out
+                transform: translateX(-20px)
             }
 
-            .animate-on-scroll.animate {
-                opacity: 1;
-                transform: translateY(0)
+            .menu-toggle:checked+.menu-toggle-label span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px)
             }
+
+            .nav-buttons {
+                position: fixed;
+                top: 70px;
+                right: 20px;
+                width: 220px;
+                background-color: rgba(2, 49, 61, .95);
+                backdrop-filter: blur(20px);
+                padding: 15px;
+                border-radius: 15px;
+                flex-direction: column;
+                gap: 10px;
+                display: none;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+                z-index: 100;
+                animation: slideInDown .3s ease-out
+            }
+
+            .nav-buttons.active {
+                display: flex
+            }
+
+            .nav-button,
+            .nav-btn {
+                width: 100%;
+                text-align: left;
+                justify-content: center
+            }
+
+            .founder-card {
+                flex-direction: column;
+                padding: 50px 30px;
+                gap: 40px
+            }
+
+            .photo-wrapper {
+                margin: 0 auto
+            }
+
+            .text-content {
+                text-align: center;
+                align-items: center
+            }
+
+            .title .highlight::after {
+                width: 80%
+            }
+
+            .quote {
+                max-width: 100%
+            }
+        }
+
+        @media (max-width:768px) {
+            .section5 {
+                padding: 40px 10px
+            }
+
+            .testimonial-title {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 30px
+            }
+
+            .testimonial-card {
+                width: 350px;
+                padding: 25px 20px
+            }
+
+            .testimonial-carousel {
+                gap: 15px
+            }
+
+        }
+
+        @media (max-width:480px) {
+            .testimonial-card {
+                width: 280px;
+                padding: 20px 15px
+            }
+
+            .testimonial-title {
+                font-size: 1.8rem
+            }
+
+            .legacy-rectangle {
+                padding: 40px 20px
+            }
+
+            .founder-card {
+                padding: 40px 20px;
+                gap: 30px
+            }
+
+            .photo-wrapper {
+                min-width: 140px
+            }
+
+            .back-plate {
+                top: 10px;
+                left: 2px
+            }
+
+            .image-column {
+                right: 40%;
+            }
+
+            #building-animation {
+                transform: scale(2);
+            }
+
+            .quick-list {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width:600px) {
+            .hero {
+                padding: 80px 0 0;
+                min-height: 50vh
+            }
+
+            .section2-columns,
+            .container {
+                padding: 10px
+            }
+
+            .image-container {
+                height: 60vh;
+                aspect-ratio: 4/3;
+                width: 98%;
+                border-radius: 40px;
+                margin-bottom: -10%
+            }
+
+            .image-container img {
+                object-fit: fill;
+                border-radius: 10px;
+            }
+
+            .image-content h1 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: .9rem
+            }
+
+            .columns-wrapper {
+                grid-template-columns: 1fr;
+                /* Single column layout */
+                grid-auto-flow: dense;
+                /* Allows reordering */
+            }
+
+            .image-column {
+                grid-row: 2;
+                /* Moves image to second row */
+                margin-bottom: 0;
+                margin-top: 30px;
+            }
+
+            .text-column {
+                grid-row: 1;
+                /* Ensures text stays first */
+            }
+
+            .image-column,
+            .text-column {
+                padding: 0 20px
+            }
+
+            .image-column {
+                margin-bottom: 30px
+            }
+
+            .column-img {
+                max-height: 300px
+            }
+
+            .venture-card {
+                height: 450px
+            }
+
+            .news-card {
+                width: 400px;
+                height: 450px
+            }
+
+            .founder-card {
+                padding: 40px 20px;
+                gap: 30px
+            }
+
+            .photo-wrapper {
+                flex: 0 0 280px
+            }
+
+            .back-plate {
+                width: 200px;
+                height: 300px
+            }
+
+            .photo {
+                width: 240px
+            }
+
+            .card-content {
+                padding: 10px
+            }
+
+            .ventures-grid {
+                padding: 20px;
+            }
+
+            .venture-card {
+                height: 500px
+            }
+
+            .img img {
+                margin-left: 10px;
+            }
+
+            .legacy-rectangle {
+                padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 30px)
+            }
+
+            .founder-card {
+                padding: clamp(30px, 6vw, 40px) clamp(20px, 4vw, 30px);
+                gap: 40px
+            }
+
+            .photo-wrapper {
+                min-width: 160px
+            }
+
+            .title {
+                text-align: center
+            }
+
+            .title .highlight::after {
+                display: none;
+            }
+
+            .read-more-btn {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion:no-preference) {
+            .venture-card:hover img {
+                animation: pulse 2s infinite
+            }
+
+            .social:hover {
+                animation: pulse 1.5s infinite
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all .8s ease-out
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0)
+        }
     </style>
 </head>
 
@@ -2354,6 +2395,23 @@
                                 <strong>9AM-6PM | Monday - Saturday</strong>
                             </div>
                         </div>
+                    </div>
+                    <div class="social-row">
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
             </div>

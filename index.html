@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Group - Crafting Ventures with Soul & Strategy</title>
     <style>
+        @font-face {
+            font-family: 'inter';
+            src: url(./Inter-VariableFont_opsz\,wght.ttf);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -467,10 +472,11 @@
         }
 
         .section-title {
+            font-family: "inter";
             font-size: 2.5rem;
             color: #000;
             margin-bottom: 50px;
-            font-weight: 300;
+            font-weight: 600;
             letter-spacing: 1px;
             opacity: 0;
             animation: fadeInUp 1s ease-out .3s forwards;
@@ -1743,7 +1749,7 @@
         .section5 {
             padding: 60px 10px;
             position: relative;
-            overflow: hidden
+            overflow: hidden;
         }
 
         .testimonial-title {
@@ -1890,11 +1896,16 @@
             }
 
             .image-container {
-                height: auto;
+                height: 60vh;
                 aspect-ratio: 4/3;
                 width: 98%;
-                border-radius: 10px;
+                border-radius: 40px;
                 margin-bottom: -10%
+            }
+
+            .image-container img {
+                object-fit: fill;
+                border-radius: 10px;
             }
 
             .image-content h1 {
@@ -1965,7 +1976,7 @@
             }
 
             .img img {
-                margin-left:10px;
+                margin-left: 10px;
             }
         }
 
@@ -2415,20 +2426,22 @@
             });
 
             // Hero image rotation
+            // Hero image rotation
             const heroSlider = () => {
                 const heroImage = document.getElementById('hero-image');
                 const heroText = document.getElementById('hero-text');
+                const isMobile = window.innerWidth <= 600; // Check if mobile view
+
                 const states = [
                     {
-                        image: './hero.png',
+                        image: isMobile ? './mobileHero.png' : './hero.png', // Different image for mobile
                         title: 'Investing in ventures that<br>Inspire and Endure.',
                         button: 'GET STARTED',
                     },
                     {
-                        image: './banner.png',
-                        title: 'Arabic Flavor Born in Fire.',
-                        button: 'LEARN MORE',
-                        color: '#F15A24' // Color for the second slide
+                        image: isMobile ? './mobileBanner.png' : './banner.png', // Different image for mobile
+                        title: '', 
+                        button: 'LEARN MORE'
                     }
                 ];
                 let currentState = 0;
@@ -2439,20 +2452,17 @@
 
                     heroImage.src = state.image;
 
-                    // Create the h1 element separately so we can style it
-                    const h1 = document.createElement('h1');
-                    h1.innerHTML = state.title;
+                    // Clear existing content
+                    heroText.innerHTML = '';
 
-                    // Apply color only if it exists in the state
-                    if (state.color) {
-                        h1.style.color = state.color;
-                        h1.style.background = 'none'; // Remove gradient background
-                        h1.style.webkitTextFillColor = 'initial'; // Reset text fill
+                    // Only add title if it exists
+                    if (state.title) {
+                        const h1 = document.createElement('h1');
+                        h1.innerHTML = state.title;
+                        heroText.appendChild(h1);
                     }
 
-                    // Clear existing content and add new elements
-                    heroText.innerHTML = '';
-                    heroText.appendChild(h1);
+                    // Always add the button
                     heroText.innerHTML += `<a href="#" class="cta-button">${state.button}</a>`;
                 };
 
@@ -2469,9 +2479,18 @@
                         rotationInterval = setInterval(changeState, 3000);
                     }
                 });
+
+                // Handle window resize to change mobile image if needed
+                window.addEventListener('resize', () => {
+                    const newIsMobile = window.innerWidth <= 600;
+                    if (isMobile !== newIsMobile) {
+                        states[1].image = newIsMobile ? './mobile-banner.png' : './banner.png';
+                    }
+                });
             };
 
             heroSlider();
+
         });
     </script>
 </body>

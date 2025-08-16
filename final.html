@@ -1735,46 +1735,118 @@
                 transform: rotate(-45deg) translate(7px, -6px);
             }
 
-            .nav-buttons {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background-color: rgba(2, 49, 61, 0.98);
-                backdrop-filter: blur(20px);
-                padding: 80px 20px;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-                display: none;
-                z-index: 100;
-                animation: fadeIn 0.5s ease-out;
-            }
+.nav-buttons {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    width: 90%;
+    height: 100vh;
+    background: #02313d;
+    padding: 80px 20px 40px;
+    margin: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    z-index: 999;
+    overflow-y: auto;
+    transition: transform 0.3s ease-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  }
 
-            .nav-buttons.active {
-                display: flex;
-            }
+  /* Show menu when active */
+  .nav-buttons.active {
+    transform: translateX(-90%);
+  }
 
-            .nav-button,
-            .nav-btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-                justify-content: center;
-                padding: 15px 25px;
-                font-size: 1.2rem;
-            }
+  /* Navigation buttons styling */
+  .nav-button, .nav-btn {
+    width: 70%;
+    padding: 15px 20px;
+    margin: 8px 0;
+    text-align: left;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+  }
 
-            .dropdown {
-                padding: 60px 20px;
-            }
+  /* Dropdown container - now as nested panel */
+  .dropdown {
+    position: fixed;
+    top: 0;
+    right: -90%; /* Start off-screen */
+    width: 100%;
+    height: 100vh;
+    background: #00242c;
+    padding: 80px 20px 40px;
+    z-index: 1000;
+    transition: transform 0.3s ease-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  }
 
-            .dropdown a {
-                font-size: 1.2rem;
-                padding: 15px 25px;
-            }
+  /* Show dropdown when active */
+  .dropdown.active {
+    transform: translateX(-90%);
+  }
+
+  /* Dropdown links styling */
+  .dropdown a {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Back button for dropdown */
+  .dropdown-back {
+    display: block;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    color: #dec6aa;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(222, 198, 170, 0.3);
+  }
+
+  /* Menu toggle button */
+  .menu-toggle-label {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+  }
+
+  /* Close button */
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  /* Overlay when menu is open */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    display: none;
+  }
+
+  .menu-overlay.active {
+    display: block;
+  }
         }
 
         @media (max-width: 768px) {
@@ -2323,88 +2395,76 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const navButtons = document.getElementById('nav-buttons');
-            const menuLabel = document.querySelector('.menu-toggle-label');
-            const venturesBtn = document.getElementById('ventures-btn');
-            const venturesDropdown = document.getElementById('ventures-dropdown');
-            const closeDropdown = document.querySelector('.close-dropdown');
+          const menuToggle = document.getElementById('menu-toggle');
+  const navButtons = document.getElementById('nav-buttons');
+  const menuLabel = document.querySelector('.menu-toggle-label');
+  
+  // Create overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'menu-overlay';
+  document.body.appendChild(overlay);
 
-            // Mobile menu toggle
-            menuLabel.addEventListener('click', function (e) {
-                e.stopPropagation();
-                const opening = !navButtons.classList.contains('active');
-                if (opening) {
-                    navButtons.classList.add('active');
-                    menuToggle.checked = true;
-                    const navItems = navButtons.querySelectorAll('.nav-btn');
-                    navItems.forEach((item, index) => {
-                        item.style.animationDelay = `${index * 0.1}s`;
-                        item.style.animation = 'fadeInUp 0.3s ease-out forwards';
-                    });
-                } else {
-                    navButtons.classList.remove('active');
-                    menuToggle.checked = false;
-                }
-            });
+  // Create close button
+  const closeButton = document.createElement('button');
+  closeButton.className = 'close-menu';
+  closeButton.innerHTML = '&times;';
+  closeButton.setAttribute('aria-label', 'Close menu');
+  navButtons.appendChild(closeButton);
 
-            // Toggle ventures dropdown
-            venturesBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (window.innerWidth <= 900) {
-                    // On mobile, show the fullscreen dropdown
-                    venturesDropdown.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            });
+  // Create back button for dropdowns
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(dropdown => {
+    const backButton = document.createElement('a');
+    backButton.className = 'dropdown-back';
+    backButton.href = '#';
+    backButton.textContent = '← Back';
+    dropdown.insertBefore(backButton, dropdown.firstChild);
+  });
 
-            // Close dropdown
-            closeDropdown.addEventListener('click', () => {
-                venturesDropdown.classList.remove('active');
-                document.body.style.overflow = '';
-            });
+  // Mobile menu toggle
+  menuLabel.addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.body.style.overflow = 'hidden';
+    navButtons.classList.add('active');
+    overlay.classList.add('active');
+    menuToggle.checked = true;
+  });
 
-            // Close menu when clicking outside
-            document.addEventListener('click', function (event) {
-                if (!event.target.closest('nav')) {
-                    navButtons.classList.remove('active');
-                    menuToggle.checked = false;
-                    venturesDropdown.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
+  // Close menu
+  function closeAll() {
+    document.body.style.overflow = '';
+    navButtons.classList.remove('active');
+    document.querySelectorAll('.dropdown').forEach(d => {
+      d.classList.remove('active');
+    });
+    overlay.classList.remove('active');
+    menuToggle.checked = false;
+  }
 
-            // Close dropdown on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    venturesDropdown.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
+  // Close button
+  closeButton.addEventListener('click', closeAll);
 
-            // Nav scroll effect
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const nav = document.querySelector('nav');
-                if (scrollTop > 50) {
-                    nav.style.backgroundColor = 'rgba(2, 49, 61, 0.98)';
-                    nav.style.backdropFilter = 'blur(25px)';
-                    nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-                } else {
-                    nav.style.backgroundColor = 'transparent';
-                    nav.style.backdropFilter = 'blur(0)';
-                    nav.style.boxShadow = 'none';
-                }
-            });
+  // Overlay click
+  overlay.addEventListener('click', closeAll);
 
-            // Handle window resize
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 900) {
-                    // Reset mobile-specific states when resizing to desktop
-                    venturesDropdown.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
+  // Dropdown toggle
+  document.querySelectorAll('.has-dropdown > .nav-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.nextElementSibling.classList.add('active');
+      }
+    });
+  });
+
+  // Back button
+  document.querySelectorAll('.dropdown-back').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentNode.classList.remove('active');
+    });
+  });
 
             // Hero image rotation
             const heroSlider = () => {

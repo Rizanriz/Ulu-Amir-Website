@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Group - Crafting Ventures with Soul & Strategy</title>
@@ -393,7 +395,7 @@
 
         .section2-columns {
             padding: 80px 0;
-            background-color: #dec6aa;
+            background-color: #343633;
             position: relative;
             overflow: hidden
         }
@@ -435,30 +437,15 @@
         }
 
         .text-column h2 {
-            color: #333;
+            color: #ffffff;
             margin-bottom: 20px;
             font-size: 2rem;
             position: relative;
             overflow: hidden
         }
 
-        .text-column h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #02313d, #333);
-            transition: width .8s ease-out
-        }
-
-        .text-column:hover h2::after {
-            width: 100%
-        }
-
         .text-column p {
-            color: #3b3b3b;
+            color: #ffffff;
             line-height: 1.6;
             max-width: 500px;
             transition: color .3s ease
@@ -1525,15 +1512,8 @@
             gap: 14px
         }
 
-        .logo-placeholder {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff, #f0f0f0);
-            color: #02313d;
-            padding: 8px 14px;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, .1)
+        .logo-placeholder img {
+            width: 100px;
         }
 
         .signature {
@@ -1663,7 +1643,7 @@
         }
 
         .testimonial-card {
-            background-color: #02313D;
+            background-color: #757D6E;
             backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 35px 30px;
@@ -1680,7 +1660,7 @@
         .testimonial-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 45px rgba(0, 0, 0, .3);
-            background-color: #00242c
+            background-color: #3C413D
         }
 
         .star-rating {
@@ -2000,7 +1980,8 @@
             .title .highlight::after {
                 display: none;
             }
-            .read-more-btn{
+
+            .read-more-btn {
                 margin-bottom: 20px;
             }
         }
@@ -2024,6 +2005,10 @@
         .animate-on-scroll.animate {
             opacity: 1;
             transform: translateY(0)
+        }
+
+        #building-animation {
+            padding-left: 20px;
         }
     </style>
 </head>
@@ -2073,7 +2058,8 @@
         <div class="container">
             <div class="columns-wrapper">
                 <div class="image-column">
-                    <img src="./greet.png" alt="Ulu Amir Group" class="column-img" loading="lazy">
+                    <!-- Lottie animation container -->
+                    <div id="building-animation" style="width: 100%; height: 100%;"></div>
                 </div>
                 <div class="text-column">
                     <h2>Our Visionary Approach</h2>
@@ -2323,7 +2309,7 @@
             </div>
             <div class="footer-block branding">
                 <div class="logo-block">
-                    <div class="logo-placeholder">UAG</div>
+                    <div class="logo-placeholder"><img src="./logofooter.png" alt=""></div>
                     <div class="signature">Ulu Amir Group</div>
                 </div>
                 <p class="tagline">
@@ -2517,6 +2503,30 @@
 
             heroSlider();
 
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load the animation from your JSON file
+            fetch('./Building.json') // Update this path to your JSON file location
+                .then(response => response.json())
+                .then(animationData => {
+                    lottie.loadAnimation({
+                        container: document.getElementById('building-animation'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        animationData: animationData,
+                        rendererSettings: {
+                            preserveAspectRatio: 'xMidYMid meet' // Adjust as needed
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading Lottie animation:', error);
+                    // Fallback in case the animation fails to load
+                    document.getElementById('building-animation').innerHTML =
+                        '<img src="./Building Build.gif" alt="Fallback animation">';
+                });
         });
     </script>
 </body>

@@ -476,7 +476,7 @@
             font-size: 2.5rem;
             color: #000;
             margin-bottom: 50px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1px;
             opacity: 0;
             animation: fadeInUp 1s ease-out .3s forwards;
@@ -518,6 +518,11 @@
             opacity: 0;
             animation: scaleIn .8s ease-out forwards;
             box-shadow: 0 10px 30px rgba(0, 0, 0, .1)
+        }
+
+        .venture-card:nth-child(1) .img img {
+            margin-top: 75px;
+            margin-left: 30px;
         }
 
         .venture-card:nth-child(1) {
@@ -770,7 +775,8 @@
             overflow: hidden;
             opacity: 1;
             box-shadow: none;
-            max-width: none
+            max-width: none;
+            background-color: #00303b !important;
         }
 
         .founder-card::before {
@@ -898,7 +904,7 @@
         }
 
         .quote {
-            font-size: clamp(1rem, 1.5vw, 1.3rem);
+            font-size: 1rem;
             line-height: 1.5;
             max-width: 100%;
             color: #e2e8f0;
@@ -1030,7 +1036,7 @@
         }
 
         .section-heading {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 20px;
             color: #02313d;
@@ -1424,7 +1430,7 @@
         }
 
         .map-wrapper img {
-            width: 250px;
+            width: 320px;
             height: auto;
             border-radius: 15px;
             display: block;
@@ -1604,98 +1610,6 @@
             transform: scale(1.05)
         }
 
-
-        @media (max-width:900px) {
-            .hero {
-                padding: 90px 0 0;
-                min-height: 70vh
-            }
-
-            .image-container {
-                width: 95%;
-                margin-bottom: -12%;
-                border-radius: 15px
-            }
-
-            .image-content {
-                bottom: 15px;
-                left: 40px;
-                padding-right: 20px
-            }
-
-            nav {
-                padding: 10px 20px
-            }
-
-            .menu-toggle-label {
-                display: flex
-            }
-
-            .menu-toggle:checked+.menu-toggle-label span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px)
-            }
-
-            .menu-toggle:checked+.menu-toggle-label span:nth-child(2) {
-                opacity: 0;
-                transform: translateX(-20px)
-            }
-
-            .menu-toggle:checked+.menu-toggle-label span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px)
-            }
-
-            .nav-buttons {
-                position: fixed;
-                top: 70px;
-                right: 20px;
-                width: 220px;
-                background-color: rgba(2, 49, 61, .95);
-                backdrop-filter: blur(20px);
-                padding: 15px;
-                border-radius: 15px;
-                flex-direction: column;
-                gap: 10px;
-                display: none;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
-                z-index: 100;
-                animation: slideInDown .3s ease-out
-            }
-
-            .nav-buttons.active {
-                display: flex
-            }
-
-            .nav-button,
-            .nav-btn {
-                width: 100%;
-                text-align: left;
-                justify-content: center
-            }
-
-            .founder-card {
-                flex-direction: column;
-                padding: 50px 30px;
-                gap: 40px
-            }
-
-            .photo-wrapper {
-                margin: 0 auto
-            }
-
-            .text-content {
-                text-align: center;
-                align-items: center
-            }
-
-            .title .highlight::after {
-                width: 80%
-            }
-
-            .quote {
-                max-width: 100%
-            }
-        }
-
         @keyframes slideInDown {
             from {
                 opacity: 0;
@@ -1815,13 +1729,105 @@
             }
         }
 
+        @media (max-width:900px) {
+            .hero {
+                padding: 90px 0 0;
+                min-height: 70vh
+            }
+
+            .image-container {
+                width: 95%;
+                margin-bottom: -12%;
+                border-radius: 15px
+            }
+
+            .image-content {
+                bottom: 15px;
+                left: 40px;
+                padding-right: 20px
+            }
+
+            nav {
+                padding: 10px 20px
+            }
+
+            .menu-toggle-label {
+                display: flex
+            }
+
+            .menu-toggle:checked+.menu-toggle-label span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px)
+            }
+
+            .menu-toggle:checked+.menu-toggle-label span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-20px)
+            }
+
+            .menu-toggle:checked+.menu-toggle-label span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px)
+            }
+
+            .nav-buttons {
+                position: fixed;
+                top: 70px;
+                right: 20px;
+                width: 220px;
+                background-color: rgba(2, 49, 61, .95);
+                backdrop-filter: blur(20px);
+                padding: 15px;
+                border-radius: 15px;
+                flex-direction: column;
+                gap: 10px;
+                display: none;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+                z-index: 100;
+                animation: slideInDown .3s ease-out
+            }
+
+            .nav-buttons.active {
+                display: flex
+            }
+
+            .nav-button,
+            .nav-btn {
+                width: 100%;
+                text-align: left;
+                justify-content: center
+            }
+
+            .founder-card {
+                flex-direction: column;
+                padding: 50px 30px;
+                gap: 40px
+            }
+
+            .photo-wrapper {
+                margin: 0 auto
+            }
+
+            .text-content {
+                text-align: center;
+                align-items: center
+            }
+
+            .title .highlight::after {
+                width: 80%
+            }
+
+            .quote {
+                max-width: 100%
+            }
+        }
+
         @media (max-width:768px) {
             .section5 {
                 padding: 40px 10px
             }
 
             .testimonial-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
+                font-weight: 700;
                 margin-bottom: 30px
             }
 
@@ -1990,6 +1996,13 @@
             .title {
                 text-align: center
             }
+
+            .title .highlight::after {
+                display: none;
+            }
+            .read-more-btn{
+                margin-bottom: 20px;
+            }
         }
 
         @media (prefers-reduced-motion:no-preference) {
@@ -2083,7 +2096,7 @@
                     <p>Restaurant</p>
                     <a href="#" class="explore-btn">EXPLORE</a>
                     <div class="img">
-                        <img style="margin-top:70px" src="./food.png" alt="" loading="lazy">
+                        <img src="./food.png" width="300px" alt="" loading="lazy">
                     </div>
                 </div>
                 <div class="venture-card">
@@ -2446,15 +2459,16 @@
 
                 const states = [
                     {
+                        image: isMobile ? './mobileBanner.png' : './banner.png', // Different image for mobile
+                        title: '',
+                        button: 'LEARN MORE'
+                    },
+                    {
                         image: isMobile ? './mobileHero.png' : './hero.png', // Different image for mobile
                         title: 'Investing in ventures that<br>Inspire and Endure.',
                         button: 'GET STARTED',
                     },
-                    {
-                        image: isMobile ? './mobileBanner.png' : './banner.png', // Different image for mobile
-                        title: '',
-                        button: 'LEARN MORE'
-                    }
+
                 ];
                 let currentState = 0;
 

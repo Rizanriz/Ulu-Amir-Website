@@ -11,12 +11,21 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: url('./Inter-VariableFont_opsz,wght.ttf') format('woff2'),
+                url('./fonts/Inter-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
         }
 
         body {
             overflow-x: hidden;
             color: #fff;
+            font-family: 'Inter', sans-serif;
         }
 
         /* Enhanced keyframes for animations */
@@ -229,6 +238,51 @@
         .nav-buttons li {
             position: relative;
         }
+
+        /* Dropdown container */
+        .has-dropdown {
+            position: relative;
+        }
+
+        /* Hidden by default */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background: #02313dd4;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 10px 0;
+            display: none;
+            flex-direction: column;
+            backdrop-filter: blur(25px);
+            z-index: 200;
+        }
+
+        /* Show dropdown on hover (desktop) */
+        .has-dropdown:hover .dropdown {
+            display: flex;
+        }
+
+        /* Dropdown links */
+        .dropdown li {
+            list-style: none;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px 16px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .dropdown a:hover {
+            background: rgba(255, 255, 255, 0.447);
+            border-radius: 6px;
+        }
+
 
         /* Enhanced nav buttons with modern hover effects */
         .nav-button,
@@ -595,13 +649,15 @@
         }
 
         /* Enhanced founder section */
-     
+
         .container {
             position: relative;
             border-radius: 50px;
         }
 
-        .section1,.section2,.section3 {
+        .section1,
+        .section2,
+        .section3 {
             position: sticky;
             top: 0;
             height: 100%;
@@ -659,6 +715,7 @@
         .legacy-heading {
             flex: 1;
         }
+
         .legacy-text {
             flex: 1;
             padding-left: 20px;
@@ -902,9 +959,12 @@
 
         /* Animations */
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(2deg);
             }
@@ -915,6 +975,7 @@
                 opacity: 0;
                 transform: scale(0.8) translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1) translateY(0);
@@ -926,6 +987,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -937,6 +999,7 @@
                 opacity: 0;
                 transform: translateX(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1018,6 +1081,7 @@
                 left: 2px;
             }
         }
+
         /* Enhanced what's new section */
         .whats-new-section {
             padding: 80px 20px;
@@ -1622,6 +1686,10 @@
             transform: scale(1.05);
         }
 
+        .container {
+            padding: 20px;
+        }
+
         /* Enhanced responsive design */
         @media (max-width: 900px) {
             .hero {
@@ -1830,6 +1898,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(calc(-100% / 2));
             }
@@ -1840,17 +1909,17 @@
             .section5 {
                 padding: 40px 10px;
             }
-            
+
             .testimonial-title {
                 font-size: 2rem;
                 margin-bottom: 30px;
             }
-            
+
             .testimonial-card {
                 width: 350px;
                 padding: 25px 20px;
             }
-            
+
             .testimonial-carousel {
                 gap: 15px;
             }
@@ -1861,7 +1930,7 @@
                 width: 280px;
                 padding: 20px 15px;
             }
-            
+
             .testimonial-title {
                 font-size: 1.8rem;
             }
@@ -1939,10 +2008,24 @@
             .photo {
                 width: 240px;
             }
-            .card-content{
+
+            .card-content {
                 padding: 10px;
             }
+
+            .ventures-grid {
+                padding: 20px;
+            }
+
+            .venture-card {
+                height: 500px;
+            }
+
+            .venture-card:first-child .img img {
+                margin-left: 10px;
+            }
         }
+
 
         /* Additional modern effects */
         @media (prefers-reduced-motion: no-preference) {
@@ -1980,23 +2063,31 @@
         </label>
 
         <ul class="nav-buttons" id="nav-buttons">
-            <button class="nav-btn" aria-expanded="false" aria-controls="services-dropdown" id="services-btn">
-                Home </button>
-            <button class="nav-btn" aria-expanded="false" aria-controls="services-dropdown" id="services-btn">
-                Our Ventures </button>
-            <button class="nav-btn" aria-expanded="false" aria-controls="services-dropdown" id="services-btn">
-                Founder's Message </button>
-            <button class="nav-btn" aria-expanded="false" aria-controls="services-dropdown" id="services-btn">
-                About Us </button>
-            <button class="nav-btn" aria-expanded="false" aria-controls="services-dropdown" id="services-btn">
-                Contact Us </button>
+            <li><button class="nav-btn">Home</button></li>
+
+            <li class="has-dropdown">
+                <button class="nav-btn" aria-expanded="false" aria-controls="ventures-dropdown" id="ventures-btn">
+                    Our Ventures
+                </button>
+                <ul class="dropdown" id="ventures-dropdown">
+                    <li><a href="#venture1">Onar Restaurant</a></li>
+                    <li><a href="#venture2">Lolwa Coffee Shop</a></li>
+                    <li><a href="#venture3">Lull Cafe</a></li>
+                    <li><a href="#venture4">Luxury Real Estate</a></li>
+                </ul>
+            </li>
+
+            <li><button class="nav-btn">Founder's Message</button></li>
+            <li><button class="nav-btn">About Us</button></li>
+            <li><button class="nav-btn">Contact Us</button></li>
         </ul>
     </nav>
 
-    <section class="hero">
+    <!-- Replace your current hero section with this -->
+    <section class="hero" id="hero-section">
         <div class="image-container">
-            <img src="./hero.png" alt="Business ventures">
-            <div class="image-content">
+            <img src="./hero.png" alt="Business ventures" id="hero-image">
+            <div class="image-content" id="hero-text">
                 <h1>Investing in ventures that<br>Inspire and Endure.</h1>
                 <a href="#" class="cta-button">GET STARTED</a>
             </div>
@@ -2051,8 +2142,8 @@
 
                 <!-- Venture 3 -->
                 <div class="venture-card">
-                    <h3>Luxury Real</h3>
-                    <p>Estate</p>
+                    <h3> Lull</h3>
+                    <p>Cafe</p>
                     <a href="#" class="explore-btn">EXPLORE</a>
                     <div class="img">
                         <img src="./surfboard.png" alt="" style="margin-top: 25px;">
@@ -2187,76 +2278,76 @@
     </section>
 
     <section class="section5">
-  <h2 class="testimonial-title">Testimonials</h2>
-  <div class="testimonial-container">
-    <div class="testimonial-carousel">
-      <div class="testimonial-card">
-        <div class="star-rating">★★★★★</div>
-        <p class="testimonial-text">
-          "Taxready.ae transformed our tax compliance process. Their team's
-          expertise saved us countless hours and ensured we're always
-          compliant with UAE regulations."
-        </p>
-        <div class="client-info">
-          <h3 class="client-name">Ahmed Khalifa</h3>
-          <p class="client-title">CEO, TechSolutions UAE</p>
-        </div>
-      </div>
+        <h2 class="testimonial-title">Testimonials</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Taxready.ae transformed our tax compliance process. Their team's
+                        expertise saved us countless hours and ensured we're always
+                        compliant with UAE regulations."
+                    </p>
+                    <div class="client-info">
+                        <h3 class="client-name">Ahmed Khalifa</h3>
+                        <p class="client-title">CEO, TechSolutions UAE</p>
+                    </div>
+                </div>
 
-      <div class="testimonial-card">
-        <div class="star-rating">★★★★★</div>
-        <p class="testimonial-text">
-          "The corporate tax advisory services provided exceptional value.
-          Their strategic approach helped us optimize our tax position
-          significantly."
-        </p>
-        <div class="client-info">
-          <h3 class="client-name">Sarah Al-Mansoori</h3>
-          <p class="client-title">CFO, Gulf Enterprises</p>
-        </div>
-      </div>
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "The corporate tax advisory services provided exceptional value.
+                        Their strategic approach helped us optimize our tax position
+                        significantly."
+                    </p>
+                    <div class="client-info">
+                        <h3 class="client-name">Sarah Al-Mansoori</h3>
+                        <p class="client-title">CFO, Gulf Enterprises</p>
+                    </div>
+                </div>
 
-      <div class="testimonial-card">
-        <div class="star-rating">★★★★★</div>
-        <p class="testimonial-text">
-          "We've been using their tax filing services for 2 years now.
-          Flawless execution every time with clear communication throughout
-          the process."
-        </p>
-        <div class="client-info">
-          <h3 class="client-name">Raj Patel</h3>
-          <p class="client-title">Director, TradeLinks FZE</p>
-        </div>
-      </div>
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "We've been using their tax filing services for 2 years now.
+                        Flawless execution every time with clear communication throughout
+                        the process."
+                    </p>
+                    <div class="client-info">
+                        <h3 class="client-name">Raj Patel</h3>
+                        <p class="client-title">Director, TradeLinks FZE</p>
+                    </div>
+                </div>
 
-      <div class="testimonial-card">
-        <div class="star-rating">★★★★★</div>
-        <p class="testimonial-text">
-          "The transfer pricing study was comprehensive and helped us avoid
-          potential compliance issues. Highly recommend their services to
-          any business in UAE."
-        </p>
-        <div class="client-info">
-          <h3 class="client-name">Fatima Al-Qassimi</h3>
-          <p class="client-title">Founder, Pearl Consulting</p>
-        </div>
-      </div>
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "The transfer pricing study was comprehensive and helped us avoid
+                        potential compliance issues. Highly recommend their services to
+                        any business in UAE."
+                    </p>
+                    <div class="client-info">
+                        <h3 class="client-name">Fatima Al-Qassimi</h3>
+                        <p class="client-title">Founder, Pearl Consulting</p>
+                    </div>
+                </div>
 
-      <div class="testimonial-card">
-        <div class="star-rating">★★★★★</div>
-        <p class="testimonial-text">
-          "Outstanding service quality and attention to detail. Their team
-          made complex tax matters simple and understandable for our
-          business operations."
-        </p>
-        <div class="client-info">
-          <h3 class="client-name">Mohammad Al-Rashid</h3>
-          <p class="client-title">Managing Partner, Emirates Trade Hub</p>
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Outstanding service quality and attention to detail. Their team
+                        made complex tax matters simple and understandable for our
+                        business operations."
+                    </p>
+                    <div class="client-info">
+                        <h3 class="client-name">Mohammad Al-Rashid</h3>
+                        <p class="client-title">Managing Partner, Emirates Trade Hub</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <footer class="site-footer">
         <div class="footer-inner">
@@ -2456,6 +2547,53 @@
                 e.stopPropagation();
             });
         });
+
+        // Hero image rotation - instant changes
+        const heroSlider = () => {
+            const heroImage = document.getElementById('hero-image');
+            const heroText = document.getElementById('hero-text');
+
+            // Your two states
+            const states = [
+                {
+                    image: './hero.png',
+                    title: 'Investing in ventures that<br>Inspire and Endure.',
+                    button: 'GET STARTED'
+                },
+                {
+                    image: './banner.png', // Your second image
+                    title: 'Building sustainable<br>businesses with purpose.',
+                    button: 'LEARN MORE',
+                    textClass: 'alternate'
+                }
+            ];
+
+            let currentState = 0;
+
+            // Function to change state instantly
+            const changeState = () => {
+                currentState = (currentState + 1) % states.length;
+                const state = states[currentState];
+
+                heroImage.src = state.image;
+                heroText.innerHTML = `<h1>${state.title}</h1><a href="#" class="cta-button">${state.button}</a>`;
+            };
+
+            // Auto-rotate every 3 seconds
+            let rotationInterval = setInterval(changeState, 3000);
+
+            // Click to change manually
+            document.getElementById('hero-section').addEventListener('click', (e) => {
+                if (!e.target.classList.contains('cta-button')) {
+                    clearInterval(rotationInterval);
+                    changeState();
+                    rotationInterval = setInterval(changeState, 3000);
+                }
+            });
+        };
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', heroSlider);
     </script>
 </body>
 

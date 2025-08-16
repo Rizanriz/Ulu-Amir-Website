@@ -161,7 +161,7 @@
             font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: 20px;
             line-height: 1.2;
-            font-weight: 600;
+            font-weight: 500;
             background-color: #fff;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -412,7 +412,7 @@
 
         .image-column {
             position: relative;
-            top: -8%;
+            top: -1%;
             right: 30%;
             opacity: 0;
             animation: fadeInLeft 1s ease-out .5s forwards
@@ -446,9 +446,12 @@
         .text-column h2 {
             color: #ffffff;
             margin-bottom: 20px;
-            font-size: 2rem;
+            font-size: 2.5rem;
             position: relative;
-            overflow: hidden
+            overflow: hidden;
+            font-weight:500;
+            font-family: "inter";
+            
         }
 
         .text-column p {
@@ -1725,296 +1728,303 @@
             }
 
             .image-content {
-                bottom: 15px;
-                left: 40px;
-                padding-right: 20px
-            }
-
-            nav {
-                padding: 10px 20px
-            }
-
-            .menu-toggle-label {
-                display: flex
-            }
-
-            .menu-toggle:checked+.menu-toggle-label span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px)
-            }
-
-            .menu-toggle:checked+.menu-toggle-label span:nth-child(2) {
-                opacity: 0;
-                transform: translateX(-20px)
-            }
-
-            .menu-toggle:checked+.menu-toggle-label span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px)
-            }
-
-            .nav-buttons {
-                position: fixed;
-                top: 70px;
-                right: 20px;
-                width: 220px;
-                background-color: rgba(2, 49, 61, .95);
-                backdrop-filter: blur(20px);
-                padding: 15px;
-                border-radius: 15px;
-                flex-direction: column;
-                gap: 10px;
-                display: none;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
-                z-index: 100;
-                animation: slideInDown .3s ease-out
-            }
-
-            .nav-buttons.active {
-                display: flex
-            }
-
-            .nav-button,
-            .nav-btn {
-                width: 100%;
-                text-align: left;
-                justify-content: center
-            }
-
-            .founder-card {
-                flex-direction: column;
-                padding: 50px 30px;
-                gap: 40px
-            }
-
-            .photo-wrapper {
-                margin: 0 auto
-            }
-
-            .text-content {
-                text-align: center;
-                align-items: center
-            }
-
-            .title .highlight::after {
-                width: 80%
-            }
-
-            .quote {
-                max-width: 100%
-            }
-        }
-
-        @media (max-width:768px) {
-            .section5 {
-                padding: 40px 10px
-            }
-
-            .testimonial-title {
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 30px
-            }
-
-            .testimonial-card {
-                width: 350px;
-                padding: 25px 20px
-            }
-
-            .testimonial-carousel {
-                gap: 15px
-            }
-
-        }
-
-        @media (max-width:480px) {
-            .testimonial-card {
-                width: 280px;
-                padding: 20px 15px
-            }
-
-            .testimonial-title {
-                font-size: 1.8rem
-            }
-
-            .legacy-rectangle {
-                padding: 40px 20px
-            }
-
-            .founder-card {
-                padding: 40px 20px;
-                gap: 30px
-            }
-
-            .photo-wrapper {
-                min-width: 140px
-            }
-
-            .back-plate {
-                top: 10px;
-                left: 2px
-            }
-            .image-column {
-                right: 40%;
-            }
-            #building-animation {
-                transform: scale(2);
-            }
-        }
-
-        @media (max-width:600px) {
-            .hero {
-                padding: 80px 0 0;
-                min-height: 50vh
-            }
-
-            .section2-columns,
-            .container {
-                padding: 10px
-            }
-
-            .image-container {
-                height: 60vh;
-                aspect-ratio: 4/3;
-                width: 98%;
-                border-radius: 40px;
-                margin-bottom: -10%
-            }
-
-            .image-container img {
-                object-fit: fill;
-                border-radius: 10px;
-            }
-
-            .image-content h1 {
-                font-size: 1.5rem;
-                line-height: 1.3;
-            }
-
-            .cta-button {
-                padding: 10px 20px;
-                font-size: .9rem
-            }
-
-            .columns-wrapper {
-                grid-template-columns: 1fr;
-                /* Single column layout */
-                grid-auto-flow: dense;
-                /* Allows reordering */
-            }
-
-            .image-column {
-                grid-row: 2;
-                /* Moves image to second row */
-                margin-bottom: 0;
-                margin-top: 30px;
-            }
-
-            .text-column {
-                grid-row: 1;
-                /* Ensures text stays first */
-            }
-
-            .image-column,
-            .text-column {
-                padding: 0 20px
-            }
-
-            .image-column {
-                margin-bottom: 30px
-            }
-
-            .column-img {
-                max-height: 300px
-            }
-
-            .venture-card {
-                height: 450px
-            }
-
-            .news-card {
-                width: 400px;
-                height: 450px
-            }
-
-            .founder-card {
-                padding: 40px 20px;
-                gap: 30px
-            }
-
-            .photo-wrapper {
-                flex: 0 0 280px
-            }
-
-            .back-plate {
-                width: 200px;
-                height: 300px
-            }
-
-            .photo {
-                width: 240px
-            }
-
-            .card-content {
-                padding: 10px
-            }
-
-            .ventures-grid {
-                padding: 20px;
-            }
-
-            .venture-card {
-                height: 500px
-            }
-
-            .img img {
-                margin-left: 10px;
-            }
-
-            .legacy-rectangle {
-                padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 30px)
-            }
-
-            .founder-card {
-                padding: clamp(30px, 6vw, 40px) clamp(20px, 4vw, 30px);
-                gap: 40px
-            }
-
-            .photo-wrapper {
-                min-width: 160px
-            }
-
-            .title {
+                padding-right: 20px;
+                margin: auto;
                 text-align: center
             }
 
-            .title .highlight::after {
+            .image-content h1::after {
                 display: none;
             }
 
-            .read-more-btn {
-                margin-bottom: 20px;
+
+                nav {
+                    padding: 10px 20px
+                }
+
+                .menu-toggle-label {
+                    display: flex
+                }
+
+                .menu-toggle:checked+.menu-toggle-label span:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px)
+                }
+
+                .menu-toggle:checked+.menu-toggle-label span:nth-child(2) {
+                    opacity: 0;
+                    transform: translateX(-20px)
+                }
+
+                .menu-toggle:checked+.menu-toggle-label span:nth-child(3) {
+                    transform: rotate(-45deg) translate(7px, -6px)
+                }
+
+                .nav-buttons {
+                    position: fixed;
+                    top: 70px;
+                    right: 20px;
+                    width: 220px;
+                    background-color: rgba(2, 49, 61, .95);
+                    backdrop-filter: blur(20px);
+                    padding: 15px;
+                    border-radius: 15px;
+                    flex-direction: column;
+                    gap: 10px;
+                    display: none;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+                    z-index: 100;
+                    animation: slideInDown .3s ease-out
+                }
+
+                .nav-buttons.active {
+                    display: flex
+                }
+
+                .nav-button,
+                .nav-btn {
+                    width: 100%;
+                    text-align: left;
+                    justify-content: center
+                }
+
+                .founder-card {
+                    flex-direction: column;
+                    padding: 50px 30px;
+                    gap: 40px
+                }
+
+                .photo-wrapper {
+                    margin: 0 auto
+                }
+
+                .text-content {
+                    text-align: center;
+                    align-items: center
+                }
+
+                .title .highlight::after {
+                    width: 80%
+                }
+
+                .quote {
+                    max-width: 100%
+                }
             }
-        }
 
-        @media (prefers-reduced-motion:no-preference) {
-            .venture-card:hover img {
-                animation: pulse 2s infinite
+            @media (max-width:768px) {
+                .section5 {
+                    padding: 40px 10px
+                }
+
+                .testimonial-title {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    margin-bottom: 30px
+                }
+
+                .testimonial-card {
+                    width: 350px;
+                    padding: 25px 20px
+                }
+
+                .testimonial-carousel {
+                    gap: 15px
+                }
+
             }
 
-            .social:hover {
-                animation: pulse 1.5s infinite
+            @media (max-width:480px) {
+                .testimonial-card {
+                    width: 280px;
+                    padding: 20px 15px
+                }
+
+                .testimonial-title {
+                    font-size: 1.8rem
+                }
+
+                .legacy-rectangle {
+                    padding: 40px 20px
+                }
+
+                .founder-card {
+                    padding: 40px 20px;
+                    gap: 30px
+                }
+
+                .photo-wrapper {
+                    min-width: 140px
+                }
+
+                .back-plate {
+                    top: 10px;
+                    left: 2px
+                }
+
+                .image-column {
+                    right: 40%;
+                }
+
+                #building-animation {
+                    transform: scale(2);
+                }
             }
-        }
 
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all .8s ease-out
-        }
+            @media (max-width:600px) {
+                .hero {
+                    padding: 80px 0 0;
+                    min-height: 50vh
+                }
 
-        .animate-on-scroll.animate {
-            opacity: 1;
-            transform: translateY(0)
-        }
+                .section2-columns,
+                .container {
+                    padding: 10px
+                }
+
+                .image-container {
+                    height: 60vh;
+                    aspect-ratio: 4/3;
+                    width: 98%;
+                    border-radius: 40px;
+                    margin-bottom: -10%
+                }
+
+                .image-container img {
+                    object-fit: fill;
+                    border-radius: 10px;
+                }
+
+                .image-content h1 {
+                    font-size: 1.5rem;
+                    line-height: 1.3;
+                }
+
+                .cta-button {
+                    padding: 10px 20px;
+                    font-size: .9rem
+                }
+
+                .columns-wrapper {
+                    grid-template-columns: 1fr;
+                    /* Single column layout */
+                    grid-auto-flow: dense;
+                    /* Allows reordering */
+                }
+
+                .image-column {
+                    grid-row: 2;
+                    /* Moves image to second row */
+                    margin-bottom: 0;
+                    margin-top: 30px;
+                }
+
+                .text-column {
+                    grid-row: 1;
+                    /* Ensures text stays first */
+                }
+
+                .image-column,
+                .text-column {
+                    padding: 0 20px
+                }
+
+                .image-column {
+                    margin-bottom: 30px
+                }
+
+                .column-img {
+                    max-height: 300px
+                }
+
+                .venture-card {
+                    height: 450px
+                }
+
+                .news-card {
+                    width: 400px;
+                    height: 450px
+                }
+
+                .founder-card {
+                    padding: 40px 20px;
+                    gap: 30px
+                }
+
+                .photo-wrapper {
+                    flex: 0 0 280px
+                }
+
+                .back-plate {
+                    width: 200px;
+                    height: 300px
+                }
+
+                .photo {
+                    width: 240px
+                }
+
+                .card-content {
+                    padding: 10px
+                }
+
+                .ventures-grid {
+                    padding: 20px;
+                }
+
+                .venture-card {
+                    height: 500px
+                }
+
+                .img img {
+                    margin-left: 10px;
+                }
+
+                .legacy-rectangle {
+                    padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 30px)
+                }
+
+                .founder-card {
+                    padding: clamp(30px, 6vw, 40px) clamp(20px, 4vw, 30px);
+                    gap: 40px
+                }
+
+                .photo-wrapper {
+                    min-width: 160px
+                }
+
+                .title {
+                    text-align: center
+                }
+
+                .title .highlight::after {
+                    display: none;
+                }
+
+                .read-more-btn {
+                    margin-bottom: 20px;
+                }
+            }
+
+            @media (prefers-reduced-motion:no-preference) {
+                .venture-card:hover img {
+                    animation: pulse 2s infinite
+                }
+
+                .social:hover {
+                    animation: pulse 1.5s infinite
+                }
+            }
+
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all .8s ease-out
+            }
+
+            .animate-on-scroll.animate {
+                opacity: 1;
+                transform: translateY(0)
+            }
     </style>
 </head>
 
@@ -2067,7 +2077,7 @@
                     <div id="building-animation" style="width: 100%; height: 100%;"></div>
                 </div>
                 <div class="text-column">
-                    <h2>Our Visionary Approach</h2>
+                    <h2>Welcome to <br> Ulu Amir Group</h2>
                     <p>Ulu Amir Group is a visionary investment company headquartered in Uluwatu, Bali – Indonesia. We
                         are dedicated to launching innovative, culturally rooted, and experience-driven ventures across
                         diverse industries including hospitality, real estate, and consumer goods. Our mission is to

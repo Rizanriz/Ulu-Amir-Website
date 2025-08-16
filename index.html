@@ -704,18 +704,18 @@
 
         .heading-main {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
-            font-weight: 300;
+            font-weight: 600;
             line-height: 1.2;
             color: #DEC6AA;
             margin-bottom: 10px;
-            font-family: 'Playfair Display', serif
+            font-family: "inter";
         }
 
         .heading-sub {
             font-size: clamp(1.5rem, 3vw, 2.2rem);
             font-weight: 300;
             color: #DEC6AA;
-            font-family: 'Playfair Display', serif
+            font-family: "inter";
         }
 
         .legacy-paragraph {
@@ -867,7 +867,7 @@
             margin-bottom: 0;
             position: relative;
             color: #DEC6AA;
-            font-family: 'Playfair Display', serif;
+            font-family: "inter";
             opacity: 0;
             animation: fadeInRight 1s ease-out .7s forwards
         }
@@ -875,7 +875,7 @@
         .title .highlight {
             display: block;
             position: relative;
-            font-family: 'Playfair Display', serif;
+            font-family: "inter";
             background: linear-gradient(45deg, #DEC6AA, #f0e6d2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1020,44 +1020,6 @@
             }
         }
 
-        @media (max-width:640px) {
-            .legacy-rectangle {
-                padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 30px)
-            }
-
-            .founder-card {
-                padding: clamp(30px, 6vw, 40px) clamp(20px, 4vw, 30px);
-                gap: 40px
-            }
-
-            .photo-wrapper {
-                min-width: 160px
-            }
-
-            .title {
-                text-align: center
-            }
-        }
-
-        @media (max-width:480px) {
-            .legacy-rectangle {
-                padding: 40px 20px
-            }
-
-            .founder-card {
-                padding: 40px 20px;
-                gap: 30px
-            }
-
-            .photo-wrapper {
-                min-width: 140px
-            }
-
-            .back-plate {
-                top: 10px;
-                left: 2px
-            }
-        }
 
         .whats-new-section {
             padding: 80px 20px;
@@ -1871,6 +1833,7 @@
             .testimonial-carousel {
                 gap: 15px
             }
+          
         }
 
         @media (max-width:480px) {
@@ -1881,6 +1844,23 @@
 
             .testimonial-title {
                 font-size: 1.8rem
+            }
+                  .legacy-rectangle {
+                padding: 40px 20px
+            }
+
+            .founder-card {
+                padding: 40px 20px;
+                gap: 30px
+            }
+
+            .photo-wrapper {
+                min-width: 140px
+            }
+
+            .back-plate {
+                top: 10px;
+                left: 2px
             }
         }
 
@@ -1918,10 +1898,20 @@
                 font-size: .9rem
             }
 
-            .columns-wrapper {
-                grid-template-columns: 1fr;
-                gap: 30px
-            }
+               .columns-wrapper {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-auto-flow: dense; /* Allows reordering */
+    }
+    
+    .image-column {
+        grid-row: 2; /* Moves image to second row */
+        margin-bottom: 0;
+        margin-top: 30px; /* Add some space between text and image */
+    }
+    
+    .text-column {
+        grid-row: 1; /* Ensures text stays first */
+    }
 
             .image-column,
             .text-column {
@@ -1977,6 +1967,22 @@
 
             .img img {
                 margin-left: 10px;
+            }
+               .legacy-rectangle {
+                padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 30px)
+            }
+
+            .founder-card {
+                padding: clamp(30px, 6vw, 40px) clamp(20px, 4vw, 30px);
+                gap: 40px
+            }
+
+            .photo-wrapper {
+                min-width: 160px
+            }
+
+            .title {
+                text-align: center
             }
         }
 

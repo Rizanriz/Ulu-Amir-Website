@@ -2092,7 +2092,7 @@
 
     <section class="hero" id="hero-section">
         <div class="image-container">
-            <img src="./hero.png" alt="Business ventures" id="hero-image" loading="lazy">
+            <img src="./mobileHero.png" alt="Business ventures" id="hero-image" loading="lazy">
             <div class="image-content" id="hero-text">
                 <h1>Investing in ventures that<br>Inspire and Endure.</h1>
                 <a href="#" class="cta-button">GET STARTED</a>
@@ -2503,16 +2503,15 @@
 
                 const states = [
                     {
-                        image: isMobile ? './mobileHero.png' : './hero.png', // Different image for mobile
-                        title: 'Investing in ventures that<br>Inspire and Endure.',
-                        button: 'GET STARTED',
-                    },
-                    {
                         image: isMobile ? './mobileBanner.png' : './banner.png', // Different image for mobile
                         title: '',
                         button: 'LEARN MORE'
                     },
-                    
+                    {
+                        image: isMobile ? './mobileHero.png' : './hero.png', // Different image for mobile
+                        title: 'Investing in ventures that<br>Inspire and Endure.',
+                        button: 'GET STARTED',
+                    },
 
                 ];
                 let currentState = 0;

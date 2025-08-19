@@ -729,11 +729,11 @@
             width: 100%;
             height: 60vh;
             object-fit: cover;
-            display: block
+            display: block;
         }
 
         .section3 {
-            background-color: #02313D;
+            background-color: #02313D !important;
             z-index: 3;
             position: relative;
             overflow: hidden;
@@ -742,9 +742,10 @@
         }
 
         .founder-card {
+            z-index: 4;
             background: transparent;
             border-radius: 0;
-            padding: clamp(60px, 8vw, 100px) clamp(40px, 6vw, 80px);
+            padding: clamp(60px, 8vw, 100px);
             width: 100%;
             height: 80vh;
             display: flex;
